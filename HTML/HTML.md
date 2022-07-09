@@ -9,8 +9,118 @@
 > * ❗  : Required
 > * ⚠️ : Experimental
 
+**Table of content**
+- [a](#a)
+- [abbr](#abbr)
+- [address](#address)
+- [area](#area)
+- [article](#article)
+- [aside](#aside)
+- [audio](#audio)
+- [b](#b)
+- [base](#base)
+- [bdi](#bdi)
+- [bdo](#bdo)
+- [blockquote](#blockquote)
+- [body](#body)
+- [br](#br)
+- [button](#button)
+- [canvas](#canvas)
+- [caption](#caption)
+- [cite](#cite)
+- [code](#code)
+- [col](#col)
+- [colgroup](#colgroup)
+- [data](#data)
+- [datalist](#datalist)
+- [dd](#dd)
+- [del](#del)
+- [details](#details)
+- [dfn](#dfn)
+- [dialog](#dialog)
+- [div](#div)
+- [dl](#dl)
+- [dt](#dt)
+- [em](#em)
+- [embed](#embed)
+- [fieldset](#fieldset)
+- [figcaption](#figcaption)
+- [figure](#figure)
+- [footer](#footer)
+- [form](#form)
+- [h1](#h1)
+- [h2](#h2)
+- [h3](#h3)
+- [h4](#h4)
+- [h5](#h5)
+- [h6](#h6)
+- [head](#head)
+- [header](#header)
+- [hgroup](#hgroup)
+- [hr](#hr)
+- [html](#html)
+- [i](#i)
+- [iframe](#iframe)
+- [img](#img)
+- [input](#input)
+- [ins](#ins)
+- [kbd](#kbd)
+- [label](#label)
+- [legend](#legend)
+- [li](#li)
+- [link](#link)
+- [main](#main)
+- [map](#map)
+- [mark](#mark)
+- [meta](#meta)
+- [meter](#meter)
+- [nav](#nav)
+- [noframes](#noframes)
+- [noscript](#noscript)
+- [ol](#ol)
+- [optgroup](#optgroup)
+- [option](#option)
+- [output](#output)
+- [p](#p)
+- [picture](#picture)
+- [pre](#pre)
+- [progress](#progress)
+- [q](#q)
+- [rp](#rp)
+- [rt](#rt)
+- [rtc](#rtc)
+- [ruby](#ruby)
+- [s](#s)
+- [samp](#samp)
+- [script](#script)
+- [section](#section)
+- [select](#select)
+- [small](#small)
+- [source](#source)
+- [span](#span)
+- [strong](#strong)
+- [style](#style)
+- [sub](#sub)
+- [summary](#summary)
+- [sup](#sup)
+- [table](#table)
+- [tbody](#tbody)
+- [td](#td)
+- [template](#template)
+- [textarea](#textarea)
+- [tfoot](#tfoot)
+- [th](#th)
+- [thead](#thead)
+- [time](#time)
+- [title](#title)
+- [tr](#tr)
+- [track](#track)
+- [u](#u)
+- [ul](#ul)
+- [var](#var)
+- [wbr](#wbr)
 
-
+---
 
 ## `a` 
 
@@ -23,7 +133,7 @@
 _Example:_
 
 ```html
-<a href="https://site.com">HTML Reference</a>
+<a href="https://site.com">HTML</a>
 ```
 
 ### `href`
@@ -822,7 +932,7 @@ The <dfn>World Wide Web</dfn> is the part of the Internet that uses the HTTP pro
 
 ---
 
-## `dialog`
+## `dialog` ⚠️
 
 | Type  | Self-closing |
 |-------|--------------|
@@ -1422,3 +1532,1897 @@ Hello <i>World</i>!
 ```
 
 ---
+
+## `iframe`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a container for a nested **browsing context**: you can include a web page _within_ another web page.
+
+_Example:_
+
+```html
+<iframe src="https://site.com">
+  Fallback text for non-supported browsers
+</iframe>
+```
+
+### `src`
+
+_Defines the URL of the nested web page._
+
+`src="https://site.com"` :  You can type any URL. Be aware that some websites will not allow to be iframed.
+
+### `width`
+
+_Defines the width of the iframe._
+
+`width="150"` : The width in pixels.
+
+### `height`
+
+_Defines the height of the iframe._
+
+`height="50"` : The height in pixels.
+
+### `allowfullscreen`
+
+_Allows the browser to show the iframe in fullscreen with JavaScript.(No value required.)_
+
+---
+
+## `img`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ✅            |
+
+> Defines an **image** inserted in the web page.
+
+_Example:_
+
+```html
+<img src="/images/sunset.jpg" alt="Picture of a Ha Long Bay sunset">
+
+<!-- For responsive images, use srcset and sizes -->
+
+<img src="/images/sunset-360.jpg"
+  alt="Picture of a Ha Long Bay sunset"
+  srcset="/images/sunset-360.jpg 360w,
+          /images/sunset-720.jpg 720w,
+          /images/sunset-1440.jpg 1440w>"
+  sizes="(min-width: 800px) 720px, 360px">
+```
+
+### `src`
+
+_The URL where the image is hosted.(❗)_
+
+`src="/images/tiramisu.jpg"` : You can use a **relative** URL.
+
+`src="https://site.com/images/traffic.jpg"` : You can use an **absolute** URL.
+
+### `alt`
+
+_Alternative text to describe the image if it's not available. Used by screen readers.(❗)_
+
+`alt="Picture of a Ha Long Bay sunset"` : Describe the image as if it was not present.
+
+### `srcset`
+
+_Defines a list of different **sources** for the same image. The browser will choose the best one to use._
+
+`srcset="/images/sunset-@2x.jpg 2x"` : You can define a pixel density descriptor like `2x`. In this case, `sunset-@2x.jpg` is `720px` wide.
+
+`srcset="/images/sunset-360.jpg 360w` : You can use a **width descriptor** like `360w`. This value is divided by one of the source sizes (defined in the sizes attribute) to obtain the **pixel density**.
+
+### `sizes`
+
+_Defines a list of different source **sizes**. You can combine each of them with a **media query**._
+
+`sizes="(min-width: 800px) 1440px, 720px"` : The browser will use the `1440px` image (defined in srcset) if the viewport is larger than `800px`.
+It will use the `720px` otherwise.
+
+### `width`
+
+_Defines the width of the image._
+
+`width="720"` : The width in pixels.
+
+### `height`
+
+_Defines the height of the image._
+
+`height="720"` : The height in pixels.
+
+---
+
+## `input`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ✅            |
+
+> Defines an **interactive** control within a web form.
+
+_Example:_
+
+```html
+<input type="text" name="first_name" placeholder="e.g. Alex">
+```
+
+### `type`
+_Defines the type of form input.(❗)_
+
+`type="text"` : Simple single line text input that accepts any type of character.
+
+`type="email"` : Like a text input, but the browser will try to only allow valid email addresses.
+
+`type="number"` : Like a text input, but the browser will try to only allow valid numbers.
+
+`type="checkbox"` : A toggle checkbox that can only be one of two states: checked or unchecked. The value is only submitted by the form if the checkbox is checked.
+
+`type="radio"`: Needs to be used used in combination with other radio buttons, so that they are mutually exclusive.
+
+`type="submit"` : Submit button that is triggered when clicked or when pressing Enter.
+
+### `name`
+
+_Defines the unique identifier for that input within the form. It allows the server to access each input's value when submitted.(❗)_
+
+`name="first_name"` : The name value must be unique within the context of a `<form>` container.
+
+### `placeholder`
+
+_Defines a non-selectable placeholder text that only appears when the input is empty._
+
+`placeholder="e.g. Alex"` : You can hint at the format expected for the input.
+
+### `required`
+
+_Tells the browser that this input is **required**. Leaving it empty will show a warning.(No value required.)_
+
+### `disabled`
+
+_Disables the input.(No value required.)_
+
+---
+
+## `ins`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines text that has been **inserted**.
+
+_Example:_
+
+```html
+To write abbreviations, use the <del cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/acronym">acronym</del> <ins>abbr</ins> HTML element.
+```
+
+### `cite`
+
+_Defines the URL where the reason for the deletion is explained._
+
+`cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/acronym"` : You can only use a valid URL.
+
+### `datetime`
+
+_Defines when the deletion has occurred._
+
+`datettime="2017-10-14T12:00:00.001-04:00"` : You need a valid datettime string.
+
+---
+## `kbd`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a snippet of **user input**.
+
+_Example:_
+
+```html
+To save, press <kbd>Ctrl + S</kbd>.
+```
+
+---
+
+## `label`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a **label** for a form control.
+
+_Example:_
+
+```html
+<label for="first_name">First name</label>
+<br>
+<input type="text" name="first_name" id="first_name">
+```
+
+### `for`
+
+_Defines which control the label is associated with._
+
+`for="last_name"` : Clicking the label will focus on the input with the `id` equal to `last_name`.
+
+---
+
+## `legend`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a **caption** for a parent's content.
+
+_Example:_
+
+```html
+<form action="/subscribe" method="post">
+  <fieldset>
+    <legend>Subscribe to the Newsletter</legend>
+    <input type="email" name="email">
+    <button>Ok</button>
+  </fieldset>
+</form>
+```
+
+---
+
+## `li`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines a list item within an ordered list `<ol>` or unordered list `<ul>`.
+
+_Example:_
+
+```html
+<ol>
+  <li>Step one</li>
+  <li>Step two</li>
+  <li>????</li>
+  <li>PROFIT!!!</li>
+</ol>
+
+<p>My shopping list:</p>
+<ul>
+  <li>Milk</li>
+  <li>Bread</li>
+  <li>Chocolate</li>
+  <li>More chocolate</li>
+</ul>
+```
+---
+
+## `link`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines a **link** between the current web page and an external link or resource.
+
+_Example:_
+
+```html
+<link rel="stylesheet" type="text/css" href="./style.css">
+```
+
+### `href`
+
+_Defines the target of the link. (❗)_
+
+`href="https://site.com"` : You can pass an **absolute** URL.
+
+`href="/style.css"` : You can pass a URL **relative** to the root domain.
+
+### `rel`
+
+_Defines a link type, explaining how the link relates to the current web page._
+
+`rel="stylesheet"` : The link is a stylesheet.
+
+`rel="icon"` : The link is a favicon.
+
+`rel="author"` : The link is the web page's author website.
+
+`rel="next"`: The link is the next page.
+
+### `type`
+
+_Defines the type of the linked resource._
+
+`type="text/css"` : The link is an CSS file.
+
+`type="text/html"` : The link is an HTML document.
+
+---
+
+## `main`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines the **main content** of a web page. Can be displayed with a sidebar.
+
+_Example:_
+
+```html
+<main>
+  <h1>My blog post</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.</p>
+  <p>etc.</p>
+</main>
+
+<aside>
+  <h3>About the author</h3>
+  <p>Frontend Designer from Bordeaux, currently working for Improbable in sunny London.</p>
+</aside>
+```
+
+---
+
+## `map`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines an **interactive** map over an image.
+
+_Example:_
+
+```html
+<img src="/images/world-continents.png" width="320" height="160" orgwidth="320" orgheight="160" usemap="#world-continents">
+<map name="world-continents">
+  <area title="North America" href="https://en.wikipedia.org/wiki/North_America" shape="poly" coords="48,89,67,69,77,49,140,0,68,0,6,10,4,31,16,69">
+  <area title="South America" href="https://en.wikipedia.org/wiki/South_America" shape="poly" coords="48,88,61,74,119,99,95,160,66,159">
+  <area title="Europe" href="https://en.wikipedia.org/wiki/Europe" shape="poly" coords="124,49,145,46,158,50,187,43,198,6,146,1,115,21">
+  <area title="Africa" href="https://en.wikipedia.org/wiki/Africa" shape="poly" coords="121,53,140,47,169,51,186,77,196,80,188,137,156,136,138,97,118,86">
+  <area title="Asia" href="https://en.wikipedia.org/wiki/Asia" shape="poly" coords="166,50,184,77,201,74,215,91,258,108,263,87,283,74,297,8,192,3,191,29,187,46,170,42">
+  <area title="Australia" href="https://en.wikipedia.org/wiki/Australia_(continent)" shape="poly" coords="257,107,263,85,314,89,316,137,294,151,249,132,248,114">
+</map>
+```
+
+### `name`
+
+_Defines the name of the map that an image `usemap` attribute will use as value._
+
+`name="world-continents"` : The `<img usemap="#world-continents">` will use this map as overlay.
+
+---
+
+## `mark`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines **highlighted** text.
+
+_Example:_
+
+```html
+We use HTML5 to write <mark>content</mark> on the Web.
+```
+
+---
+
+## `meta`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines **metadata** attached to a web page.
+
+_Example:_
+
+```html
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+```
+
+### `charset`
+
+_Defines the character encoding for the whole web page._
+
+`charset="UTF-8"` : The web page is encoded in UTF-8.
+
+### `http-equiv`
+
+_Defines meta rules for the web page._
+
+`http-equiv="Content-Security-Policy"` : Defines a link to a web page's content policies.
+
+`http-equiv="refresh"` : Allows to refresh the web page every N seconds, or even redirect to another URL.
+
+`http-equiv="X-UA-Compatible"` : Defines which Internet Explorer verison the web page should be rendered as.
+
+### `content`
+
+_Defines the content of the metadata. This varies according to the `name` or `http-equiv` value._
+
+`content="width=device-width, initial-scale=1"` : For the `viewport` metadata, you can specify the width and initial scale of the web page.
+
+`content="2; url=https://site.com"` : For the `refresh` metadata, you can specify how many seconds to wait before redirecting to another URL.
+
+### `name`
+
+_Defines additional information attached to the web page._
+
+`name="viewport"` : Defines dimension and scaling rules for the viewport.
+
+`name="theme-color"` : Defines a theme color which can be used by the browser or the operating system.
+
+---
+
+## `meter`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a **horizontal** meter.
+
+_Example:_
+
+```html
+<meter min="0" low="16" value="71" high="92" max="100">Alex</meter><br>
+<meter min="0" low="16" value="16" high="92" max="100">Brandon</meter><br>
+<meter min="0" low="16" value="40" high="92" max="100">Charlotte</meter><br>
+<meter min="0" low="16" value="92" high="92" max="100">Sam</meter><br>
+```
+
+### `value`
+
+_Defines the value of the meter, on the scale defined by the **max** attribute.(❗)_
+
+`value="0.7"` : You can use **decimal** and **negative** numbers. It must be between the `min` and `max` values.
+
+`value="-42"` : If you use a value that is lower than the minimum, the meter will be empty.
+
+`value="63"` : If you use a value that is higher than the maximum, the meter will be full.
+
+### `min`
+
+_Defines the **minimum** value possible on the meter._
+
+`min="0"` : Default.
+
+`min="100"` : You can use **decimal** and **negative** numbers.
+
+### `max`
+
+_Defines the **maximum** value possible on the meter._
+
+`max="1"` : Default.
+
+`max="100"` : You can use **decimal** and **negative** numbers.
+
+### `low`
+
+_Defines the lowest value across the range defined by the meter._
+
+`low="0.16"` : The value must be higher than **min** and **lower** than high
+
+### `high`
+
+_Defines the highest value across the range defined by the meter._
+
+`high="0.92"` : The value must be lower than **max** and **higher** than low
+
+---
+
+## `nav`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a section with **navigation links**.
+
+_Example:_
+
+```html
+<nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+```
+
+---
+
+## `noframes`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines content displayed when the browser does not support **frames**.
+
+_Example:_
+
+```html
+<frameset cols="50%, 50%">
+  <frame src="https://site.com/element/frameset">
+  <frame src="https://site.com/element/frame">
+  <noframes>This browser does not support framesets.</noframes>
+</frameset>
+```
+
+---
+
+## `noscript`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines content displayed when the browser does not have JavaScript enabled. 
+
+_Example:_
+
+```html
+<noscript>Please enable JavaScript.</noscript>
+```
+
+---
+
+## `ol`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines an **ordered list**.
+
+_Example:_
+
+```html
+<ol>
+  <li>Step one</li>
+  <li>Step two</li>
+  <li>????</li>
+  <li>PROFIT!!!</li>
+</ol>
+```
+
+### `type`
+
+_Defines how the list is numbered._
+
+`type="1"` : Default.
+
+`type="a"` : Uses lowercase letters.
+
+`type="A"` : Uses uppercase letters.
+
+`type="i"` : Uses lowercase Roman numerals.
+
+`type="I"` : Uses uppercase Roman numerals.
+
+### `start`
+
+_Defines a number to start the list with._
+
+`start="3"` : You can use any **integer**.
+
+### `reversed`
+
+_You can use any integer.(No value required)_
+
+---
+
+## `optgroup`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a group of `<option>` elements.
+
+_Example:_
+
+```html
+<select>
+  <optgroup label="South America">
+    <option>Uruguay</option>
+    <option>Brazil</option>
+    <option>Argentina</option>
+  </optgroup>
+  <optgroup label="Europe">
+    <option>Italy</option>
+    <option>Germany</option>
+    <option>England</option>
+    <option>France</option>
+    <option>Spain</option>
+  </optgroup>
+</select>
+```
+
+### `label`
+
+_Defines the label for the whole group._
+
+`label="South America"` : The label is not selectable.
+
+### `disabled`
+
+_Disables all the options of the group.(No value required)_
+
+---
+
+## `option`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines an option within a `<select>` dropdown.
+
+_Example:_
+
+```html
+<select name="country">
+  <option value="Argentina">Argentina</option>
+  <option value="Bolivia">Bolivia</option>
+  <option value="Brazil">Brazil</option>
+  <option value="Chile">Chile</option>
+  <option value="Colombia">Colombia</option>
+  <option value="Ecuador">Ecuador</option>
+  <option value="Guyana">Guyana</option>
+  <option value="Paraguay">Paraguay</option>
+  <option value="Peru">Peru</option>
+  <option value="Suriname">Suriname</option>
+  <option value="Uruguay">Uruguay</option>
+  <option value="Venezuela">Venezuela</option>
+</select>
+```
+
+### `value`
+
+_Defines the `<select>` value if this option is selected.(❗)_
+
+`value="south-africa"` : This value will be sent to the server when the form is submitted.
+
+### `label`
+
+_Defines a label for the option._
+
+`label="Republic of South Africa"` : The label will replace the option inner text.
+
+### `disabled`
+
+_Disables the option.(No value required)_
+
+### `selected`
+
+_Selects the option when the web page loads.(No value required)_
+
+---
+
+## `output`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines the result of a calculation or of **user action**.
+
+_Example:_
+
+```html
+<form oninput="sum.value = parseInt(a.value) + parseInt(b.value)">
+  <input type="number" name="a" value="4">
+  +
+  <input type="number" name="b" value="7">
+  =
+  <output name="sum">11</output>
+</form>
+```
+
+### `name`
+
+_Defines the unique identifier for that input within the form. It allows the server to access each input's value when submitted._
+
+`name="sum"` : The name value must be unique within the context of a `<form>` container.
+
+---
+
+## `p`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a simple **paragraph** of text. 
+
+_Example:_
+
+```html
+<p>Hello World</p>
+```
+
+---
+
+## `picture` ⚠️
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines a container for sources of an `<img>` element.
+
+_Example:_
+
+```html
+<picture>
+ <source
+  media="(min-width: 800px)"
+  srcset="/images/sunset-360.jpg 360w,
+          /images/sunset-720.jpg 720w,
+          /images/sunset-1440.jpg 1440w"
+  sizes="33.3vw">
+ <source
+  srcset="/images/sunset-720.jpg 2x,
+          /images/sunset-360.jpg 1x">
+ <img src="/images/sunset.jpg" alt="Picture of a Ha Long Bay sunset">
+</picture>
+```
+
+---
+
+## `pre`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines **preformatted** text.
+
+_Example:_
+
+```html
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+```
+
+---
+
+## `progress`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a **progress bar**.
+
+_Example:_
+
+```html
+<progress value="71" max="100">Alex</progress><br>
+<progress value="16" max="100">Brandon</progress><br>
+<progress value="40" max="100">Charlotte</progress><br>
+<progress value="92" max="100">Sam</progress>
+```
+
+### `value`
+
+_Defines the value of the **progress bar**, on the scale defined by the **max** attribute.(❗)_
+
+`value="7"` : You can use **decimal** and **negative** numbers. It must be between the `min` and `max` values.
+
+`value="-42"` : If you use a value that is lower than the minimum, the meter will be empty.
+
+`value="63"` : If you use a value that is higher than the maximum, the meter will be full.
+
+### `max`
+
+_Defines the **maximum** value possible on the meter._
+
+`max="1"` : Default.
+
+`max="100"` : You can use **decimal** and **negative** numbers.
+
+---
+
+## `q`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a **short quotation**.
+
+_Example:_
+
+```html
+He looks around and says <q cite="https://en.wikiquote.org/wiki/The_Terminator">I'll be back</q>.
+```
+
+### `cite`
+
+_Defines the source URL of the quotation._
+
+`cite="https://en.wikiquote.org/wiki/The_Terminator"` : You can only use a valid URL.
+
+---
+
+## `rp`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines content displayed when the browser does not support the `<ruby>` element.
+
+_Example:_
+
+```html
+<ruby>
+  漢 <rp>(</rp><rt>Kan</rt><rp>)</rp>
+  字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+</ruby>
+```
+
+---
+
+## `rt`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines the pronunciation of ruby annotations.
+
+_Example:_
+
+```html
+<ruby>
+  漢 <rp>(</rp><rt>Kan</rt><rp>)</rp>
+  字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+</ruby>
+```
+
+---
+
+## `rtc`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a text container within ruby annotations.
+
+_Example:_
+
+```html
+<ruby>
+   <rb>旧</rb>
+   <rb>金</rb>
+   <rb>山</rb>
+   <rt>jiù</rt>
+   <rt>jīn</rt>
+   <rt>shān</rt>
+   <rtc>San Francisco</rtc>
+</ruby>
+```
+
+--- 
+
+## `ruby`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a ruby annotation to show the pronunciation of East Asian characters.
+
+_Example:_
+
+```html
+<ruby>
+  漢 <rp>(</rp><rt>Kan</rt><rp>)</rp>
+  字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+</ruby>
+```
+
+---
+
+## `s`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines strikethrough text.
+
+_Example:_
+
+```html
+Alex is <s>37</s> 38 years old.
+```
+
+---
+
+## `samp`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a sample output from a computer program.
+
+_Example:_
+
+```html
+I entered <code>git push</code> and the terminal printed out <samp>Everything up-to-date</samp>.
+```
+
+---
+
+## `script`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines a container for an external script.
+
+_Example:_
+
+```html
+<script src="https://site.com/javascript/my-scripts.js"></script>
+```
+
+### `src`
+
+_Defines the source of the external script._
+
+`src="https://site.com/javascript/my-scripts.js"` : Defines the source of the external script.
+
+### `type`
+
+_Defines the MIME type of the external script._
+
+`type="text/javascript"` : This is for .js files.
+
+### `async`
+
+_Allows the external script to be loaded asynchronously.(No value required.)_
+
+---
+
+## `section`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a **section** within a web page.
+
+_Example:_
+
+```html
+<section>
+  <h2>Section title</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.</p>
+</section>
+```
+
+---
+
+## `select`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a select dropdown with different `<option>` elements.
+
+_Example:_
+
+```html
+<select name="country">
+  <option value="Argentina">Argentina</option>
+  <option value="Bolivia">Bolivia</option>
+  <option value="Brazil">Brazil</option>
+  <option value="Chile">Chile</option>
+  <option value="Colombia">Colombia</option>
+  <option value="Ecuador">Ecuador</option>
+  <option value="Guyana">Guyana</option>
+  <option value="Paraguay">Paraguay</option>
+  <option value="Peru">Peru</option>
+  <option value="Suriname">Suriname</option>
+  <option value="Uruguay">Uruguay</option>
+  <option value="Venezuela">Venezuela</option>
+</select>
+```
+
+### `name`
+
+_Defines the unique identifier for that select within the form.(❗)_
+
+`name="country"` : The name value must be unique within the context of a `<form>` container.
+
+### `size`
+
+_When `multiple` is present too, defines the height of the select list._
+
+`size="5"` : You can use any **integer** value.
+
+### `multiple`
+
+_Allows to select multiple options at once.(No value required.)_
+
+### `disabled`
+
+_Disables the button(No value required.)_
+
+### `autofocus`
+
+_Sets focus on the select when the web page loads.(No value required.)_
+
+### `required`
+
+_Sets focus on the select when the web page loads.(No value required.)_
+
+---
+
+## `small`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines small print, for less important content. 
+
+_Example:_
+
+```html 
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.</p>
+<small>Posted on <time datetime="2017-04-29T19:00">Apr 29</time> in <a href="/category/code">Code</a></small>
+```
+
+---
+
+## `source`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ✅            |
+
+> Defines a source for an `<audio>`, `<video>`, or `<picture>` element.
+
+_Example:_
+
+```html
+<picture>
+ <source
+  media="(min-width: 800px)"
+  srcset="/images/sunset-360.jpg 360w,
+          /images/sunset-720.jpg 720w,
+          /images/sunset-1440.jpg 1440w"
+  sizes="33.3vw">
+ <source
+  srcset="/images/sunset-720.jpg 2x,
+          /images/sunset-360.jpg 1x">
+ <img src="/images/sunset.jpg" alt="Picture of a Ha Long Bay sunset">
+</picture>
+```
+
+### `src`
+
+### `src`
+
+_The URL where the image is hosted.(❗)_
+
+`src="/images/tiramisu.jpg"` : You can use a **relative** URL.
+
+`src="https://site.com/images/traffic.jpg"` : You can use an **absolute** URL.
+
+### `srcset`
+
+_Defines a list of different **sources** for the same image. The browser will choose the best one to use._
+
+`srcset="/images/sunset-@2x.jpg 2x"` : You can define a pixel density descriptor like `2x`. In this case, `sunset-@2x.jpg` is `720px` wide.
+
+`srcset="/images/sunset-360.jpg 360w` : You can use a **width descriptor** like `360w`. This value is divided by one of the source sizes (defined in the sizes attribute) to obtain the **pixel density**.
+
+### `sizes`
+
+_Defines a list of different source **sizes**. You can combine each of them with a **media query**._
+
+`sizes="(min-width: 800px) 1440px, 720px"` : The browser will use the `1440px` image (defined in srcset) if the viewport is larger than `800px`.
+It will use the `720px` otherwise.
+
+### `type`
+
+_Defines the MIME type of the source._
+
+`type="image/jpeg"` : This is for `.jpg` files.
+
+### `media`
+
+_Defines a media query for a `<picture>` source._
+
+`media="(min-width: 800px)"` : The media will only be used on viewports larger than 800px.
+
+---
+
+## `span`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a **generic** inline container of content, that does not carry any semantic value.
+
+_Example:_
+
+```html
+Lorem ipsum<span> dolor sit amet, consectetur adipiscing elit</span>. Donec viverra nec nulla vitae mollis.
+```
+
+---
+
+## `strong`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines **strong importance** on text.
+
+_Example:_
+
+```html
+HTML should only be used to write <strong>content</strong>, and keep CSS for <strong>styling</strong> the web page.
+```
+
+---
+
+## `style`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+>Defines a container to add **CSS** within a web page.
+
+_Example:_
+
+```html
+<style type="text/css">
+  .important {
+    color: red;
+  }
+</style>
+<p class="important">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+```
+
+### `type`
+
+_Defines the MIME type of the style block._
+
+`type="text/css"` : This is for `.css` content.
+
+---
+
+## `sub`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines text that should be displayed **lower**.
+
+_Example:_
+
+```html
+The formula of carbon dioxide is CO<sub>2</sub>.
+```
+
+---
+
+## `summary`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines the summary of a `<details>` element.
+
+_Example:_
+
+```html
+<details>
+  <summary>Read more</summary>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.</p>
+</details>
+```
+
+---
+
+## `sup`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines text that should be displayed **higher**. 
+
+_Example:_
+
+```html
+The "power of two" is 2<sup>n</sup> where n is an integer.
+```
+
+---
+
+## `table`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a container for **tabular data**.
+
+_Example:_
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>John Lennon</td>
+      <td>Rhythm Guitar</td>
+    </tr>
+    <tr>
+      <td>Paul McCartney</td>
+      <td>Bass</td>
+    </tr>
+    <tr>
+      <td>George Harrison</td>
+      <td>Lead Guitar</td>
+    </tr>
+    <tr>
+      <td>Ringo Starr</td>
+      <td>Drums</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## `tbody`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a group of table rows `<tr>`.
+
+_Example:_
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>John Lennon</td>
+      <td>Rhythm Guitar</td>
+    </tr>
+    <tr>
+      <td>Paul McCartney</td>
+      <td>Bass</td>
+    </tr>
+    <tr>
+      <td>George Harrison</td>
+      <td>Lead Guitar</td>
+    </tr>
+    <tr>
+      <td>Ringo Starr</td>
+      <td>Drums</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## `td`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines a table cell. Must be a direct child of a `<tr>`.
+
+_Example:_
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">World Cup winners</th>
+    </tr>
+    <tr>
+      <td colspan="2">Location</td>
+      <td colspan="2">Score</td>
+    </tr>
+    <tr>
+      <td>Continent</td>
+      <td>Country</td>
+      <td>First</td>
+      <td>Total</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">South America</td>
+      <td>Uruguay</td>
+      <td>1930</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>1958</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Argentina</td>
+      <td>1978</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td rowspan="5">Europe</td>
+      <td>Italy</td>
+      <td>1934</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td>1954</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>England</td>
+      <td>1966</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>France</td>
+      <td>1998</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Spain</td>
+      <td>2010</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### `colspan`
+
+_Defines how many columns a cell should span across._
+
+`colspan="3"` : You can use any integer.
+
+### `rowspan`
+
+_Defines how many columns a cell should span across._
+
+`rowspan="3"` : You can use any integer.
+
+---
+
+## `template` ⚠️
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a placeholder for content that can be displayed using JavaScript.
+
+---
+
+## `textarea`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a multi-line text control within a web form.
+
+### `name`
+
+_Defines the unique identifier for that textarea within the form. It allows the server to access each textarea's value when submitted.(❗)_
+
+`name="message"` : The name value must be unique within the context of a `<form>` container.
+
+### `autocomplete`
+
+_Determines if the browser can autocomplete the textarea._
+
+`autocomplete="on"` : The browser will **enable** autocomplete functions.
+
+`autocomplete="off"` : The browser will **disable** autocomplete functions.
+
+### `minlength`
+
+_Defines the minimum amount of characters the textarea required to be valid._
+
+`minlength="10"` : You can use **integers**.
+
+### `maxlength`
+
+_Defines the maximum amount of characters the textarea can contain._
+
+`maxlength="100"` : You can use **integers**.
+
+### `placeholder`
+
+_Defines a non-selectable placeholder text that only appears when the textarea is empty._
+
+`placeholder="Enter your message here"` : You can hint at the format expected for the textarea.
+
+### `rows`
+
+_Defines the number of rows._
+
+`rows="5"` : You can use **integers**.
+
+### `cols`
+
+_Defines the number of columns._
+
+`cols="50"` : You can use **integers**.
+
+### `wrap`
+
+_Defines how the text should be wrapped._
+
+`wrap="hard"` : The text will always be wrapped depending on the `cols` value.
+
+`wrap="soft"` : The text will only break when needed.
+
+### `disabled`
+
+_Disables the textarea.(No value required.)_
+
+### `readonly`
+
+_Turns the textarea into a read-only element.(No value required.)_
+
+### `required`
+
+_Tells the browser that this textarea is **required**. Leaving it empty will show a warning.(No value required.)_
+
+### `autofocus`
+
+_Sets focus on the textarea when the web page loads.(No value required.)_
+
+### `spellcheck`
+
+_Enables the browser spell checker.(No value required.)_
+
+---
+
+## `tfoot`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a group of table rows `<tr>` at the end of a `<table>`.
+
+_Example:_
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>John Lennon</td>
+      <td>Rhythm Guitar</td>
+    </tr>
+    <tr>
+      <td>Paul McCartney</td>
+      <td>Bass</td>
+    </tr>
+    <tr>
+      <td>George Harrison</td>
+      <td>Lead Guitar</td>
+    </tr>
+    <tr>
+      <td>Ringo Starr</td>
+      <td>Drums</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## `th`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines a table header. Must be a direct child of a `<tr>`.
+
+_Example:_
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">World Cup winners</th>
+    </tr>
+    <tr>
+      <td colspan="2">Location</td>
+      <td colspan="2">Score</td>
+    </tr>
+    <tr>
+      <td>Continent</td>
+      <td>Country</td>
+      <td>First</td>
+      <td>Total</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">South America</td>
+      <td>Uruguay</td>
+      <td>1930</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>1958</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Argentina</td>
+      <td>1978</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td rowspan="5">Europe</td>
+      <td>Italy</td>
+      <td>1934</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td>1954</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>England</td>
+      <td>1966</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>France</td>
+      <td>1998</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Spain</td>
+      <td>2010</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### `colspan`
+
+_Defines how many columns a cell should span across._
+
+`colspan="3"` : You can use any integer.
+
+### `rowspan`
+
+_Defines how many columns a cell should span across._
+
+`rowspan="3"` : You can use any integer.
+
+---
+
+## `thead`
+
+| Type  | Self-closing |
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a group of table rows `<tr>` at the start of a `<table>`.
+
+_Example:_
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Name</th>
+      <th>Instrument</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>John Lennon</td>
+      <td>Rhythm Guitar</td>
+    </tr>
+    <tr>
+      <td>Paul McCartney</td>
+      <td>Bass</td>
+    </tr>
+    <tr>
+      <td>George Harrison</td>
+      <td>Lead Guitar</td>
+    </tr>
+    <tr>
+      <td>Ringo Starr</td>
+      <td>Drums</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## `time`
+
+| Type   | Self-closing |
+|--------|--------------|
+| Inline | ⛔            |
+
+> Defines a time on a 24h clock.
+
+_Example:_
+
+```html
+The game starts at <time datetime="2017-04-29T19:00">19:00</time>.
+```
+
+### `datetime`
+
+_Defines when the deletion has occurred._
+
+`datettime="2017-04-29T19:00"` : You need a valid datettime string.
+
+---
+
+## `title`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines the **title** of the web page, displayed on the browser tab.
+
+_Example:_
+
+```html
+<title>The title element</title>
+```
+
+---
+
+## `tr`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ⛔            |
+
+> Defines a table row.
+
+_Example:_
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">World Cup winners</th>
+    </tr>
+    <tr>
+      <td colspan="2">Location</td>
+      <td colspan="2">Score</td>
+    </tr>
+    <tr>
+      <td>Continent</td>
+      <td>Country</td>
+      <td>First</td>
+      <td>Total</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">South America</td>
+      <td>Uruguay</td>
+      <td>1930</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>1958</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Argentina</td>
+      <td>1978</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td rowspan="5">Europe</td>
+      <td>Italy</td>
+      <td>1934</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td>1954</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>England</td>
+      <td>1966</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>France</td>
+      <td>1998</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Spain</td>
+      <td>2010</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## `track`
+
+| Type | Self-closing |
+|------|--------------|
+|      | ✅            |
+
+> Defines text tracks (like subtitles) for` <audio>` and `<video>` elements.
+
+---
+
+## `u`
+
+| Type   | Self-closing | 
+|--------|--------------|
+| Inline | ⛔            |
+
+> Makes an element's text **underlined**.
+
+_Example:_
+
+```html
+Hello <u>World</u>!
+```
+
+---
+
+## `ul`
+
+| Type  | Self-closing | 
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines an **unordered list**. 
+
+_Example:_
+
+```html
+<p>My shopping list:</p>
+<ul>
+  <li>Milk</li>
+  <li>Bread</li>
+  <li>Chocolate</li>
+  <li>More chocolate</li>
+</ul>
+```
+
+---
+
+## `var`
+
+| Type  | Self-closing | 
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a **variable** in a mathematical or programming expression.
+
+_Example:_
+
+```html
+The value of <var>x</var> is 12.
+```
+
+---
+
+## `wbr` ⚠️
+
+| Type  | Self-closing | 
+|-------|--------------|
+| Block | ⛔            |
+
+> Defines a location within a block of text where the browser could eventually insert **line break**.
